@@ -23,7 +23,6 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       price: Sequelize.INTEGER,
-      type: Sequelize.BOOLEAN,
       created_at: Sequelize.DATE,
       updated_at: Sequelize.DATE
     });

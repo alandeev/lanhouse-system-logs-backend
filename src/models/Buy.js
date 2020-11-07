@@ -6,7 +6,6 @@ class Buy extends Model{
       user_id: DataTypes.INTEGER,
       created_by: DataTypes.INTEGER,
       price: DataTypes.INTEGER,
-      type: DataTypes.BOOLEAN
     },
     {
       sequelize
