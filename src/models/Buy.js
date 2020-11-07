@@ -12,8 +12,8 @@ class Buy extends Model{
     })
   }
   static associate(models){
-    this.belongsTo(models.User, { foreignKey: 'user_id', as: 'Member' })
-    this.belongsTo(models.User, { foreignKey: 'created_by', as: 'Owner' })
+    this.belongsTo(models.Member, { foreignKey: 'user_id', as: 'member' })
+    this.belongsTo(models.User, { foreignKey: 'created_by', as: 'owner' })
   }
 }
 

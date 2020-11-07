@@ -6,6 +6,5 @@ const routes = Router();
 
 routes.post('/authenticate', controller.authenticate);
 routes.post('/register', controller.register);
-routes.post('/setadmin', controller.setAdmin)
 
 module.exports = routes;

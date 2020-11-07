@@ -1,3 +1,19 @@
 {
-  "key": "a2de1366ab5b216b61638b5622a7de77"
+  "key": "a2de1366ab5b216b61638b5622a7de77",
+  "admin":{ 
+    "username": "admin",
+    "password": "admin",
+    "is_admin": true
+  },
+  "database": {
+    "dialect": "postgres",
+    "username": "postgres",
+    "password": "docker",
+    "database": "sequelize3",
+    "host": "localhost",
+    "define": {
+      "timestamps": true,
+      "underscored": true
+    }
+  }
 }

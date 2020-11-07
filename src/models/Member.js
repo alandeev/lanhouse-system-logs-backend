@@ -12,8 +12,10 @@ class Member extends Model{
       sequelize
     })
   }
+
   static associate(models){
-    this.belongsTo(models.User, { foreignKey: 'created_by', as: 'Member' })
+    this.belongsTo(models.User, { foreignKey: 'created_by', as: 'owner' })
+    this.hasMany(models.Buy, { foreignKey: 'user_id', as: 'buys' });
   }
 }
 

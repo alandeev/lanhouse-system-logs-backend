@@ -1,11 +1,3 @@
-module.exports = {
-  dialect: "postgres",
-  username: "postgres",
-  password: "docker",
-  database: "sequelize3",
-  host: "localhost",
-  define: {
-    timestamps: true,
-    underscored: true
-  }
-}
+const { database } = require('./config.json');
+
+module.exports = database;

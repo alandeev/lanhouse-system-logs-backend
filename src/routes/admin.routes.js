@@ -4,14 +4,19 @@ const middleware = require('../middleware');
 
 const controller = require('../controller/adminController');
 
+const memberRoutes = require('./admin.member.routes');
+const buyRoutes = require('./admin.buy.routes');
+
 const routes = Router();
 
+//Middleware to intercept and verify if token is valid.
 routes.use(middleware);
 
-routes.get('/', controller.main);
+//Other subRoutes
+routes.use('/', memberRoutes);
+routes.use('/', buyRoutes);
 
-//Members CREATE/DELETE
-routes.post('/member', controller.createMember);
-routes.delete('/member', controller.deleteMember);
+//Routes Admin
+routes.get('/', controller.index);
 
 module.exports = routes;

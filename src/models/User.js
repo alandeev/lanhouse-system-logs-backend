@@ -13,7 +13,8 @@ class User extends Model{
   }
 
   static associate(models){
-    this.hasMany(models.Member, { foreignKey: 'created_by', as: 'Members' })
+    this.hasMany(models.Member, { foreignKey: 'created_by', as: 'members' })
+    this.hasMany(models.Buy, { foreignKey: 'created_by', as: 'buys' })
   }
 }
 

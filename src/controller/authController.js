@@ -51,22 +51,5 @@ module.exports = {
     }catch(err){
       return res.status(400).send({ error: err.message });
     }
-  },
-  async setAdmin(req, res){
-    const { username } = req.body;
-    if(!username)
-      return res.json({ error: "Faltou você passar o usuario!" });
-
-    const findUser = await User.findOne({
-      where: { username }
-    });
-
-    if(!findUser)
-      return res.json({ error: "Usuario não encontrado" });
-
-    findUser.is_admin = true;
-    await findUser.save();
-
-    return res.json(findUser);
   }
 }
