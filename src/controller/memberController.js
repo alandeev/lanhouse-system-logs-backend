@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const Member = require('../models/Member');
 const Buy = require('../models/Buy');
+const { raw } = require('express');
 
 module.exports = {
   async create(req, res){
@@ -67,8 +68,11 @@ module.exports = {
     if(!member)
       return res.json({ error: "Membro não encontrado" });
 
-    // const allPrice = member.buys.reduce((elem, ) => return )
+    const prices = member.buys.map(prop => prop.price);
+    const price = prices.length ? prices.reduce((accumulator, currentValue) => accumulator + currentValue) : 0;
 
-    return res.json(member);
+    const { id, name, age, description, buys } = member;
+
+    return res.json({ id, name, age, description, price, buys });
   }
 }
