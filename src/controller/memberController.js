@@ -1,7 +1,6 @@
 const User = require('../models/User');
 const Member = require('../models/Member');
 const Buy = require('../models/Buy');
-const { raw } = require('express');
 
 module.exports = {
   async create(req, res){
@@ -62,7 +61,11 @@ module.exports = {
       return res.json({ error: "Você precisa enviar o member_id" });
 
     const member = await Member.findByPk(member_id, {
-      include: "buys"
+      include: {
+        model: Buy,
+        as: 'buys',
+        attributes: ['price', 'created_at'],
+      }
     });
 
     if(!member)
